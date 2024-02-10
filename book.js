@@ -7,6 +7,15 @@ function Book(title, author, pages, read) {
   this.read = read
 }
 
+Book.prototype.toggleRead = function(){
+    this.read = !this.read
+}
+
+function toggleRead(i){
+    myLibrary[i].toggleRead()
+    displayBooks()
+}
+
 function addBookToLibrary() {
   let title = document.getElementById('title').value
   let author = document.getElementById('author').value
@@ -33,7 +42,7 @@ function displayBooks(){
             <p class="card-pages">${book.pages} pages</p>
             <p class="card-read">${book.read? "Completed":"Not Completed"}</p>
             <button class="card-delete" onclick="deleteBook(${i})">Delete</button>
-    
+            <button class="card-toggle-read" onclick="toggleRead(${i})">Read</button>
         </div>`
         bookList.appendChild(bookDiv)
     };
@@ -51,7 +60,12 @@ newBookBtn.addEventListener("click",function(){
     newBookForm.style.display = "block"
 })
 
+function hideContainer(){
+    newBookForm.style.display = "none"
+}
+
 newBookForm.addEventListener("submit",(e)=>{
     e.preventDefault()
     addBookToLibrary()
+    hideContainer()
 })
