@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="main-container">
+    <div class="left-container">
+    <h3 class="logo">Your Library</h3>
+    <div class="bookList"></div>
+    </div>
+    <div class="right-container">
     <button id="newBookBtn">New Book</button>
     <form id="newBookForm" style="display: none;">
         <label for="title">Title</label>
@@ -17,10 +23,12 @@
         <input type="number" name="pages" id="pages">
         <label for="read">Read?</label>
         <input type="checkbox" value="read" id="read">
+        <label for="image">Image URL</label>
+        <input type="text" id="image" name="image"/>
         <button type="submit">Add Book</button>
         <button type="button" onclick="hideContainer()">Close</button>
     </form>
-    <div class="bookList">
+    </div>
     </div>
     <script src="book.js"></script>
 </body>

@@ -1,10 +1,11 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, image) {
   this.title = title
   this.author = author
   this.pages = pages
   this.read = read
+  this.image = image
 }
 
 Book.prototype.toggleRead = function(){
@@ -21,7 +22,8 @@ function addBookToLibrary() {
   let author = document.getElementById('author').value
   let pages = document.getElementById('pages').value
   let read = document.getElementById('read').checked
-  let book = new Book(title, author, pages, read)
+  let image = document.getElementById("image").value;
+  let book = new Book(title, author, pages, read, image)
   myLibrary.push(book)
   displayBooks()
 }
@@ -38,6 +40,7 @@ function displayBooks(){
             <h3 class="card-title">${book.title}</h3>
         </div>
         <div class="body">
+            <img src="${book.image}">
             <p class="card-author">by ${book.author}</p>
             <p class="card-pages">${book.pages} pages</p>
             <p class="card-read">${book.read? "Completed":"Not Completed"}</p>
